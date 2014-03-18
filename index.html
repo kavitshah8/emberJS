@@ -47,7 +47,20 @@
 		</script>
 	</head>
 	<body>
-		
+		<script type="text/x-handlebars" data-template-name="application">
+			<nav>
+				<ul>
+					<li>{{#linkTo "index"}}Home{{/linkTo}}</li>
+					<li>{{#linkTo "about"}}About{{/linkTo}}</li>
+						<ul>
+							<li>{{#linkTo "about.team"}}Team{{/linkTo}}</li>
+						</ul>
+					<li>{{#linkTo "contact"}}Contact{{/linkTo}}</li>
+				</ul>
+			</nav>
+			{{outlet}}
+		</script>
+
 		<script type="text/x-handlebars" data-template-name="index">
 			<h1> Lets learn Ember </h1>
 		</script>
