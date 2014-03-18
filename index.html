@@ -8,8 +8,21 @@
 		<script src="ember.js"></script>
 		<script>
 			window.App=Ember.Application.create();
+			// creates a pseudo class
+			var Bookmark=Ember.Object.extend({
+				to_link: function(){
+					return "<a href="+this.get('url')+">"+this.get('name')+"</a>";
+				}
+			});
+			var bookmark=Bookmark.create({
+				name:"Tuts+",
+				url:"http://tutsplus.com"
+			});
 		</script>
 	</head>
 	<body>
+		<script type="text/x-handlebars" data-template-name="index">
+			<h1> Lets learn Ember</h1>
+		</script>
 	</body>
 </html>
