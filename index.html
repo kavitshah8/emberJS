@@ -9,6 +9,10 @@
 		<script>
 			window.App=Ember.Application.create();
 			var globalCounter=0;
+			App.Router.map(function(){
+				this.route('about');
+				this.route('contact');
+			});
 			// when you extend from an object you create a class
 			var Bookmark=Ember.Object.extend({
 
@@ -41,8 +45,18 @@
 		</script>
 	</head>
 	<body>
+		
 		<script type="text/x-handlebars" data-template-name="index">
 			<h1> Lets learn Ember </h1>
 		</script>
+		
+		<script type="text/x-handlebars" data-template-name="about">
+			<h1> About Page </h1>
+		</script>
+
+		<script type="text/x-handlebars" data-template-name="contact">
+			<h1> Contact Info </h1>
+		</script>
+
 	</body>
 </html>
