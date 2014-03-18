@@ -8,16 +8,28 @@
 		<script src="ember.js"></script>
 		<script>
 			window.App=Ember.Application.create();
-			
+			var globalCounter=0;
 			// when you extend from an object you create a class
 			var Bookmark=Ember.Object.extend({
+
 				to_link: function(){
 					return "<a href="+this.get('url')+">"+this.get('name')+"</a>";
 				},
+			
 				link: function(){
 					return this.get('name')+' '+this.get('url');
-				}.property('name','url')
-
+				}.property('name','url'),
+			
+				updateCounter: Ember.observer(function(){
+					globalCounter +=1;
+					console.log(globalCounter);
+				},'name')
+				/*
+				updateCounter: function(){
+					globalCounter +=1;
+					console.log(globalCounter);
+				}.observes("name")
+				*/
 			});
 
 			// creates an instance of an class with passing JSON params
@@ -25,11 +37,12 @@
 				name:"Tuts+",
 				url:"http://tutsplus.com"
 			});
+			// bookmark.addObserver('name',function(){})
 		</script>
 	</head>
 	<body>
 		<script type="text/x-handlebars" data-template-name="index">
-			<h1> Lets learn Ember</h1>
+			<h1> Lets learn Ember </h1>
 		</script>
 	</body>
 </html>
